@@ -108,9 +108,9 @@ function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 flex items-center justify-center"
+            className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 flex items-start justify-center pt-20"
           >
-            <div className="glass rounded-2xl p-8 text-center">
+            <div className="glass rounded-2xl p-8 text-center mx-4 max-w-md">
               <LoadingSpinner size="large" />
               <p className="text-white mt-4 text-lg">Analyzing your playlist...</p>
               <p className="text-gray-300 mt-2">This may take a few moments</p>
