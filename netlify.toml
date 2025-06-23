@@ -1,0 +1,25 @@
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Allow embedding only on jscalco.com
+    X-Frame-Options = "ALLOW-FROM https://jscalco.com"
+    Content-Security-Policy = "frame-ancestors 'self' https://jscalco.com https://www.jscalco.com"
+    
+    # Security headers
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+    # CORS headers for API functions
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
+
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    # Function-specific CORS
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
+    Access-Control-Max-Age = "86400"
