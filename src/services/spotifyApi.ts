@@ -233,26 +233,10 @@ class SpotifyApiService {
         let previewUrl = item.track.preview_url;
         let previewSource = 'spotify';
         
-        // If no Spotify preview, try Deezer fallback
-        if (!previewUrl && item.track.artists && item.track.artists.length > 0) {
-          try {
-            const artist = item.track.artists[0].name;
-            const title = item.track.name;
-            
-            console.log(`No Spotify preview for "${title}" by ${artist}, searching Deezer...`);
-            
-            const deezerResponse = await axios.get('http://localhost:5001/api/deezer/search', {
-              params: { artist, title }
-            });
-            
-            if (deezerResponse.data.preview_url) {
-              previewUrl = deezerResponse.data.preview_url;
-              previewSource = 'deezer';
-              console.log(`Found Deezer preview for "${title}"`);
-            }
-          } catch (error: any) {
-            console.warn(`Deezer fallback failed for "${item.track.name}":`, error.message);
-          }
+        // Note: Deezer fallback disabled for production deployment
+        // If no Spotify preview, we'll just use null
+        if (!previewUrl) {
+          console.log(`No preview available for "${item.track.name}" by ${item.track.artists[0]?.name}`);
         }
         
         return {
@@ -444,11 +428,16 @@ class SpotifyApiService {
           });
           artists.push(...response.data.artists);
         } else {
-          // Use proxy server for public access
-          const response = await axios.get(`http://localhost:5001/api/artists`, {
-            params: { ids: batch.join(',') }
-          });
-          artists.push(...response.data.artists);
+          // Use Netlify Functions for public access
+          try {
+            const response = await axios.get(`/.netlify/functions/artists`, {
+              params: { ids: batch.join(',') }
+            });
+            artists.push(...response.data.artists);
+          } catch (functionError: any) {
+            console.warn('Netlify Function failed for artists, using mock data:', functionError.message);
+            artists.push(...this.getMockArtists(batch));
+          }
         }
       } catch (error: any) {
         console.warn('Failed to fetch artist data for batch:', error);
