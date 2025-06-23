@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Search, Link, Sparkles, BarChart3, Users, Music2, Zap } from 'lucide-react';
+import { Search, Link, Sparkles, BarChart3, Users, Music2, Zap, TrendingUp, Target, Shield, Headphones, Brain, Palette } from 'lucide-react';
 import { useStore } from '../store/useStore';
 import { spotifyApi } from '../services/spotifyApi';
 import { playlistAnalyzer } from '../services/playlistAnalyzer';
@@ -121,12 +121,12 @@ const Home: React.FC = () => {
         </motion.div>
         
         <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 gradient-text">
-          Discover Your Music DNA
+          Free Spotify Playlist Analyzer
         </h2>
         
         <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
           Unlock deep insights into any Spotify playlist with our advanced analytics engine. 
-          Analyze mood patterns, discover hidden connections, and optimize your musical journey.
+          Analyze mood patterns, discover hidden connections, and optimize your musical journey with comprehensive playlist analysis.
         </p>
 
         {/* Playlist Input */}
@@ -222,6 +222,193 @@ const Home: React.FC = () => {
             </motion.div>
           );
         })}
+      </motion.div>
+
+      {/* SEO Content Section */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 1.0 }}
+        className="mt-16 space-y-12"
+      >
+        {/* Advanced Features Section */}
+        <div className="glass rounded-2xl p-8">
+          <h2 className="text-3xl font-bold text-white mb-6 text-center">
+            Advanced Spotify Playlist Analyzer Features
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="text-center">
+              <div className="w-12 h-12 bg-brand-green bg-opacity-20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Brain className="w-6 h-6 text-brand-green" />
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">Audio Feature Analysis</h3>
+              <p className="text-gray-300 text-sm">
+                Our Spotify playlist analyzer examines tempo, energy, danceability, valence, and acousticness to reveal the musical DNA of your playlists.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-12 h-12 bg-brand-green bg-opacity-20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Palette className="w-6 h-6 text-brand-green" />
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">Genre Distribution</h3>
+              <p className="text-gray-300 text-sm">
+                Visualize genre diversity with comprehensive charts showing how different music styles blend in your Spotify playlists.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-12 h-12 bg-brand-green bg-opacity-20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <TrendingUp className="w-6 h-6 text-brand-green" />
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">Popularity Insights</h3>
+              <p className="text-gray-300 text-sm">
+                Track popularity scores and discover hidden gems alongside mainstream hits in your playlist analysis.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* How It Works Section */}
+        <div className="glass rounded-2xl p-8">
+          <h2 className="text-3xl font-bold text-white mb-6 text-center">
+            How Our Spotify Playlist Analysis Works
+          </h2>
+          <div className="space-y-6">
+            <div className="flex items-start space-x-4">
+              <div className="w-8 h-8 bg-brand-green rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <span className="text-white font-bold text-sm">1</span>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-2">Playlist Data Extraction</h3>
+                <p className="text-gray-300">
+                  Our Spotify playlist analyzer connects to the Spotify Web API to extract comprehensive track information, including metadata, audio features, and artist details from any public playlist.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <div className="w-8 h-8 bg-brand-green rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <span className="text-white font-bold text-sm">2</span>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-2">Advanced Audio Analysis</h3>
+                <p className="text-gray-300">
+                  We analyze 11 key audio features including tempo, key, loudness, speechiness, instrumentalness, liveness, and more to create a complete musical profile of your playlist.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <div className="w-8 h-8 bg-brand-green rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <span className="text-white font-bold text-sm">3</span>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-2">Intelligent Visualization</h3>
+                <p className="text-gray-300">
+                  Transform raw data into beautiful, interactive charts and graphs that make it easy to understand your playlist's musical characteristics and patterns.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Why Choose Us Section */}
+        <div className="glass rounded-2xl p-8">
+          <h2 className="text-3xl font-bold text-white mb-6 text-center">
+            Why Choose Our Spotify Playlist Analyzer Tool
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <div className="flex items-center space-x-3 mb-4">
+                <Shield className="w-6 h-6 text-brand-green" />
+                <h3 className="text-xl font-semibold text-white">Free & Secure</h3>
+              </div>
+              <p className="text-gray-300 mb-4">
+                Our Spotify playlist analyzer is completely free to use with no registration required for public playlists. We prioritize your privacy and never store your personal data.
+              </p>
+              <div className="flex items-center space-x-3 mb-4">
+                <Headphones className="w-6 h-6 text-brand-green" />
+                <h3 className="text-xl font-semibold text-white">Audio Previews</h3>
+              </div>
+              <p className="text-gray-300">
+                Listen to 30-second track previews directly within the analysis interface, making it easy to discover new music while exploring your playlist data.
+              </p>
+            </div>
+            <div>
+              <div className="flex items-center space-x-3 mb-4">
+                <Target className="w-6 h-6 text-brand-green" />
+                <h3 className="text-xl font-semibold text-white">Comprehensive Insights</h3>
+              </div>
+              <p className="text-gray-300 mb-4">
+                Get detailed breakdowns of mood patterns, energy levels, genre distribution, and popularity metrics that other Spotify playlist analyzers don't provide.
+              </p>
+              <div className="flex items-center space-x-3 mb-4">
+                <Zap className="w-6 h-6 text-brand-green" />
+                <h3 className="text-xl font-semibold text-white">Lightning Fast</h3>
+              </div>
+              <p className="text-gray-300">
+                Analyze playlists with hundreds of tracks in seconds, not minutes. Our optimized algorithms ensure quick results without compromising accuracy.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Professional Use Cases */}
+        <div className="glass rounded-2xl p-8">
+          <h2 className="text-3xl font-bold text-white mb-6 text-center">
+            Spotify Playlist Analytics for Music Professionals
+          </h2>
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-xl font-semibold text-white mb-3">For Artists & Musicians</h3>
+              <p className="text-gray-300 mb-4">
+                Use our Spotify playlist analyzer to understand the musical characteristics of playlists you want to target for submissions. Analyze successful playlists in your genre to identify trends and optimize your music production and promotion strategies.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-white mb-3">For Playlist Curators</h3>
+              <p className="text-gray-300 mb-4">
+                Maintain consistent mood and energy levels across your playlists by analyzing audio features. Ensure your curated playlists have the right balance of popular tracks and hidden gems to keep listeners engaged.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-white mb-3">For Music Researchers</h3>
+              <p className="text-gray-300">
+                Conduct academic research on music trends, genre evolution, and listener preferences using comprehensive playlist data. Export analysis results for further statistical analysis and research publications.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Benefits Section */}
+        <div className="glass rounded-2xl p-8">
+          <h2 className="text-3xl font-bold text-white mb-6 text-center">
+            Unlock the Power of Spotify Playlist Analysis
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="text-center">
+              <h4 className="text-lg font-semibold text-white mb-2">Discover Music Patterns</h4>
+              <p className="text-gray-300 text-sm">
+                Identify recurring themes and patterns in your favorite playlists to discover new music that matches your taste.
+              </p>
+            </div>
+            <div className="text-center">
+              <h4 className="text-lg font-semibold text-white mb-2">Optimize Playlists</h4>
+              <p className="text-gray-300 text-sm">
+                Use data-driven insights to create better playlists with improved flow, energy progression, and listener engagement.
+              </p>
+            </div>
+            <div className="text-center">
+              <h4 className="text-lg font-semibold text-white mb-2">Track Popularity</h4>
+              <p className="text-gray-300 text-sm">
+                Monitor track popularity scores and identify trending songs before they become mainstream hits.
+              </p>
+            </div>
+            <div className="text-center">
+              <h4 className="text-lg font-semibold text-white mb-2">Genre Exploration</h4>
+              <p className="text-gray-300 text-sm">
+                Explore genre diversity and discover how different musical styles blend together in successful playlists.
+              </p>
+            </div>
+          </div>
+        </div>
       </motion.div>
 
     </div>
