@@ -73,7 +73,14 @@ const Home: React.FC = () => {
       setCurrentView('analysis');
     } catch (err: any) {
       console.error('Analysis failed:', err);
-      setAnalysisError(err.message || 'Failed to analyze playlist');
+      const errorMessage = err.message || 'Failed to analyze playlist';
+      
+      // Show user-friendly error message
+      if (errorMessage.includes('Unable to access playlist')) {
+        setAnalysisError('Unable to access this playlist. This may be a private playlist or have restricted access. Please try a different public playlist or login with Spotify for full access.');
+      } else {
+        setAnalysisError(errorMessage);
+      }
     } finally {
       setAnalyzing(false);
     }
